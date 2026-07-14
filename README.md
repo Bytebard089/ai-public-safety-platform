@@ -1,42 +1,71 @@
-# Scam Shield
+# ScamGraph
 
-AI-powered detection and citizen response for digital-arrest scams and impersonation fraud.
+Detection and response system for digital-arrest and impersonation fraud — a category
+of scam that cost Indian citizens over ₹1,776 crore in the first nine months of 2024
+(MHA reporting). The system scores a call transcript or forwarded message for scam risk
+in real time, explains which specific patterns triggered the score, and cross-references
+multiple reports to surface organised fraud rings rather than treating each incident in
+isolation.
 
-Built for **ET AI Hackathon 2026 — PS6: AI for Digital Public Safety**.
+## Overview
 
-## What it does
+Two integrated components:
 
-Paste a suspicious call transcript or forwarded message. Scam Shield scores it 0–100 for
-digital-arrest scam risk, highlights the exact phrases that triggered the score, and gives
-the citizen a one-tap report draft and a simulated emergency-contact alert.
+- **Detection engine** — hybrid rule-based and LLM-based scoring of individual
+  transcripts, evaluated against a labeled dataset (see Evaluation below).
+- **Fraud network graph intelligence** — entity extraction and graph clustering across
+  multiple citizen reports, surfacing shared infrastructure (phone numbers, accounts,
+  UPI IDs, case references) that indicates a single operation targeting many victims.
 
-Every component in this stack is free and open-source — no paid API keys required to run it.
+A Telegram bot provides a citizen-facing channel: a message forwarded to the bot returns
+an automated risk verdict and next-step guidance.
 
-Detection is a hybrid of:
-- **Rule layer** — regex patterns across four documented scam categories (authority
-  impersonation, forced isolation, urgency/fear, payment or OTP demand). Fast, explainable,
-  works even if the LLM call fails.
-- **LLM layer** — contextual scoring via **Mistral 7B (Apache-2.0)** running locally through
-  **Ollama** (free, open-source runtime, no API key, no per-call cost), plus a plain-language
-  reason shown to the user.
+Full write-up (architecture, methodology, and design rationale): `Scam_Shield_Detailed_Document.pdf`.
 
-See `Scam_Shield_Detailed_Document.pdf` for the full write-up (architecture, methodology,
-ethics note, and judging-criteria alignment).
+## Evaluation
 
-## Data & ethics
+The detection engine is evaluated against a 238-example labeled synthetic dataset (123
+scam, 115 benign — including 38 adversarial hard negatives that use scam-adjacent
+vocabulary without being scams, used to stress-test false positive rate).
 
-No real victim data or scraped scam scripts are used anywhere in this repo. All example
-transcripts in `backend/data/transcripts.json` are synthetic, written for testing/demo
-purposes, based only on the publicly documented *mechanics* of digital-arrest scams (MHA/RBI
-public advisories) — never copied case material.
+| Metric | Value |
+|---|---|
+| Precision | 1.00 |
+| Recall | 0.77 |
+| F1 | 0.87 |
+| False positive rate (overall) | 0.00 |
+| False positive rate (hard negatives) | 0.00 |
+
+These figures are for the rule layer in isolation. A held-out spot check outside the
+generated set (including a code-switched Hindi-English scam script) confirmed the
+expected limitation: the rule layer misses genuinely novel phrasing. This is the
+motivation for the LLM layer, and is reported here rather than obscured by it. Full
+methodology and reproduction steps: `backend/eval/README.md`.
+
+## Design decisions
+
+- **Local inference (Mistral 7B via Ollama) instead of a hosted LLM API.** The system
+  processes citizen-submitted fraud reports, which can contain personal and financial
+  details; keeping inference on-device avoids sending that data to a third party, and
+  removes a network dependency from a tool that needs to work reliably in the moment
+  a citizen is being targeted.
+- **Rule layer as a first-class component, not a fallback.** Regex pattern matching
+  across four documented scam mechanics (authority impersonation, forced isolation,
+  urgency/fear, payment or OTP demand) is fast, fully explainable, and — per the
+  evaluation above — already achieves zero false positives on its own. Risk is scored
+  on co-occurrence of categories rather than any single phrase, since no individual
+  line is proof of fraud but the combination is a documented pattern.
+- **Graph analysis is a separate stage from per-message scoring.** A single flagged
+  message tells you about one incident; correlating entities across many reports is
+  what turns isolated complaints into an actionable signal for law enforcement
+  prioritisation.
 
 ## Running locally
 
-### 1. Ollama (free, local LLM layer — optional but recommended)
+### 1. LLM layer (optional — the rule layer runs without it)
 ```bash
-# Install from https://ollama.com (free, open-source)
-ollama pull mistral      # Apache-2.0 licensed, ~4GB download, one-time
-ollama serve              # runs on http://localhost:11434 by default
+ollama pull mistral
+ollama serve
 ```
 
 ### 2. Backend
@@ -44,7 +73,7 @@ ollama serve              # runs on http://localhost:11434 by default
 cd backend
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # defaults already point at local Ollama
+cp .env.example .env
 uvicorn main:app --reload --port 8000
 ```
 
@@ -54,61 +83,52 @@ cd frontend
 npm install
 npm run dev
 ```
+Open http://localhost:5173.
 
-Open http://localhost:5173. The rule layer works immediately with zero setup; the LLM layer
-activates automatically once `ollama serve` is running. Everything works with no paid keys.
-
-### Optional: real Telegram alerts (free)
-1. Message **@BotFather** on Telegram, send `/newbot`, get a free bot token.
-2. Message your new bot once, then visit
-   `https://api.telegram.org/bot<token>/getUpdates` to find your `chat_id`.
-3. Add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_ALERT_CHAT_ID` to `backend/.env`.
-
-Without this, the alert button still works and returns a clearly-labeled simulated response.
-
-## Evaluation
-
-Rule-layer precision 1.00, recall 0.77, F1 0.87, false positive rate 0.00 (including
-against adversarial hard negatives) on a 238-example labeled synthetic set. Full
-methodology, honest caveats, and reproduction steps: `backend/eval/README.md`.
+### 4. Telegram bot (optional, separate process)
+```bash
+cd backend
+export TELEGRAM_BOT_TOKEN=your-bot-token   # issued via @BotFather
+python3 telegram_bot.py
+```
+For outbound emergency-contact alerts, also set `TELEGRAM_ALERT_CHAT_ID` in `.env`;
+without it, the alert endpoint returns a clearly labeled simulated response.
 
 ## Fraud network graph intelligence
 
-A second pillar: cross-references multiple citizen reports for shared phone numbers,
-bank accounts, UPI IDs, and case references to detect organised fraud rings, not just
-score one message at a time. Try it in the frontend's "Fraud Network" tab, or directly:
 ```bash
 curl http://localhost:8000/graph/demo
 ```
+Also available in the frontend's "Fraud Network" tab. Demonstrated on a 14-report
+synthetic dataset (`backend/data/fraud_reports.json`), correctly identifying two
+distinct fraud rings and leaving five unrelated reports unclustered.
 
-## Real inbound Telegram bot
+## Data & ethics
 
-`backend/telegram_bot.py` is a real listener, not a stub — forward it a message, get a
-live risk verdict back. Runs as a separate process:
-```bash
-cd backend
-export TELEGRAM_BOT_TOKEN=your-free-bot-token   # from @BotFather
-python3 telegram_bot.py
-```
+No real victim data, leaked scam scripts, or scraped call recordings are used anywhere
+in this repository. All transcripts, evaluation examples, and fraud-report entities are
+synthetic and developer-authored, reflecting only the publicly documented mechanics of
+digital-arrest scams (MHA/RBI advisories) without reproducing real case material.
 
 ## Project structure
 ```
 backend/
-  main.py               FastAPI app: /analyze, /report, /alert, /graph/demo, /graph/analyze
-  detector.py             Hybrid rule + LLM detection engine
-  graph_intel.py           Fraud network entity extraction, graph, clustering
-  telegram_bot.py          Real inbound Telegram listener (separate process)
-  data/transcripts.json    Synthetic labeled dataset for testing/demo
-  data/fraud_reports.json  Synthetic multi-report dataset for graph demo
-  eval/                    Evaluation harness, dataset generator, metrics, README
+  main.py               FastAPI app — /analyze, /report, /alert, /graph/demo, /graph/analyze
+  detector.py            Hybrid rule + LLM detection engine
+  graph_intel.py         Entity extraction, graph construction, clustering
+  telegram_bot.py        Inbound Telegram listener (separate process)
+  data/                  Synthetic datasets for detection and graph demos
+  eval/                  Evaluation harness, dataset generator, metrics, methodology
 frontend/
-  src/App.jsx       Scam Detection tab + Fraud Network tab
-  src/App.css        Design system
+  src/App.jsx            Scam Detection and Fraud Network views
+  src/App.css             Design system
 ```
 
-## Roadmap (post-hackathon)
+## Roadmap
 
-- Live Telegram bot channel for citizens to forward suspicious messages directly
-- Larger open-source model (e.g. Llama 3.1 8B via Ollama) for higher LLM-layer accuracy
+- Larger local model (e.g. Llama 3.1 8B via Ollama) to close the recall gap on novel
+  phrasing identified in evaluation
 - Regional-language transcript support
-- Counterfeit-currency detection (computer vision) as a second module
+- LLM-based entity extraction for the graph layer, to complement the current
+  regex-based extraction on less structured report text
+- Counterfeit-currency detection (computer vision) as an additional module
