@@ -1,0 +1,47 @@
+{
+  "note": "All transcripts below are synthetic, written by the developer for testing and demo purposes only. None are copied from real victims, real case files, or any external source. Patterns are based on publicly documented digital-arrest scam mechanics (impersonation of law enforcement, forced isolation on video call, urgency, and fund transfer demands) as described in MHA/RBI public advisories.",
+  "scam_examples": [
+    {
+      "id": "s01",
+      "text": "This is Inspector Sharma from CBI cybercrime division. Your Aadhaar number has been linked to a money laundering case. Do not disconnect this call or you will be arrested immediately. Stay on video call while we verify your identity."
+    },
+    {
+      "id": "s02",
+      "text": "Sir this is a customs department matter. A parcel with your name has illegal items and drugs. You are under digital arrest. Transfer 50000 rupees to this RBI verification account to clear your name or local police will come to your house."
+    },
+    {
+      "id": "s03",
+      "text": "Ma'am please do not tell any family member about this call, it is a confidential investigation. Keep camera on at all times. If you disconnect the video call it will be treated as absconding from the case."
+    },
+    {
+      "id": "s04",
+      "text": "This is ED, Enforcement Directorate. There is a warrant against you. To avoid arrest today you must complete a bank verification and send the OTP you receive right now."
+    },
+    {
+      "id": "s05",
+      "text": "Your SIM card is going to be blocked in 2 hours due to KYC issue linked to a criminal case in Mumbai. Stay connected and follow instructions or a police team will reach your address."
+    }
+  ],
+  "clean_examples": [
+    {
+      "id": "c01",
+      "text": "Hi, this is Rohit from the electricity board. Your bill for this month is ready, you can pay it online or at the nearest office anytime this week."
+    },
+    {
+      "id": "c02",
+      "text": "Hello, calling from your bank branch to confirm your appointment tomorrow at 11am for the locker renewal. Please bring your ID proof."
+    },
+    {
+      "id": "c03",
+      "text": "This is a reminder that your food delivery is arriving in 10 minutes. Please be available at the address."
+    },
+    {
+      "id": "c04",
+      "text": "Hi, this is the school calling about tomorrow's parent teacher meeting. It starts at 9am and is optional if you already spoke to the class teacher."
+    },
+    {
+      "id": "c05",
+      "text": "Good afternoon, this is a courtesy call from your telecom provider about a new data plan you may find useful. No action is needed."
+    }
+  ]
+}
