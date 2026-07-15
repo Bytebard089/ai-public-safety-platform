@@ -1,0 +1,1433 @@
+{
+  "note": "Synthetic evaluation set, developer-authored, not real victim or case data. benign_hard entries are legitimate-but-scam-adjacent, used to stress-test false positive rate.",
+  "examples": [
+    {
+      "id": "scam_0029",
+      "text": "Sir, this is a Customs Department notice. Case CY/2026/4471 is open against you. Please do not mention this call to anyone at home, it could jeopardise the investigation.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0123",
+      "text": "Hi Pooja, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0062",
+      "text": "This is a legal notice call. Your bank account is under scrutiny for a money laundering case. Send 120000 to the RBI holding account we provide to keep it from being frozen.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0012",
+      "text": "Hello Priya, I am calling from the Lucknow Cyber Crime branch. Your name has come up in a case ref CY/2026/8834. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0235",
+      "text": "Urgent: your flight to Kolkata tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_hard_0212",
+      "text": "This is the Ahmedabad Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0057",
+      "text": "This is a legal notice call. Your bank account is under scrutiny for a money laundering case. Send 95000 to the RBI holding account we provide to keep it from being frozen.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0008",
+      "text": "Hello Neha, I am calling from the Mumbai Cyber Crime branch. Your name has come up in a case ref NCB-2291. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0234",
+      "text": "Urgent: your flight to Mumbai tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0121",
+      "text": "Your number is linked to an illegal SIM card racket under case NCB-2291. Police will arrive within the hour unless you cooperate immediately and share the OTP sent to your phone.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0173",
+      "text": "This is your cab driver, I've arrived outside your building in Nagpur.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0053",
+      "text": "We are from the income tax intelligence wing regarding case CY/2026/8834. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Chennai.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0049",
+      "text": "We are from the income tax intelligence wing regarding case ED/MUM/775. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Ahmedabad.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0034",
+      "text": "Sir, this is a Customs Department notice. Case CY/2026/8834 is open against you. Please do not mention this call to anyone at home, it could jeopardise the investigation.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0207",
+      "text": "This is the Delhi Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0045",
+      "text": "We are from the income tax intelligence wing regarding case NCB-2291. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Pune.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0028",
+      "text": "Sir, this is a Customs Department notice. Case CBI/CC/9012 is open against you. Please do not mention this call to anyone at home, it could jeopardise the investigation.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0115",
+      "text": "This is Inspector Arjun calling. Stay on video, do not disconnect, and transfer 15000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0155",
+      "text": "Meena, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0031",
+      "text": "Sir, this is a Customs Department notice. Case ED/MUM/775 is open against you. Please do not mention this call to anyone at home, it could jeopardise the investigation.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0153",
+      "text": "Vikram, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_hard_0236",
+      "text": "Urgent: your flight to Indore tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0152",
+      "text": "Ramesh, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0005",
+      "text": "Hello Rahul, I am calling from the Pune Cyber Crime branch. Your name has come up in a case ref FIR-3390. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0156",
+      "text": "Arjun, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0060",
+      "text": "This is a legal notice call. Your bank account is under scrutiny for a money laundering case. Send 25000 to the RBI holding account we provide to keep it from being frozen.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0216",
+      "text": "This is your bank's KYC department, your annual KYC update is due this month, you may complete it by visiting your branch at your convenience.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_hard_0226",
+      "text": "Urgent: your flight to Hyderabad tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0095",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Pune. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0088",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Mumbai. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0225",
+      "text": "Urgent: your flight to Pune tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0009",
+      "text": "Hello Priya, I am calling from the Delhi Cyber Crime branch. Your name has come up in a case ref CBI/CC/1207. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0117",
+      "text": "Your number is linked to an illegal SIM card racket under case CY/2026/8834. Police will arrive within the hour unless you cooperate immediately and share the OTP sent to your phone.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0111",
+      "text": "This is Inspector Priya calling. Stay on video, do not disconnect, and transfer 95000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0084",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Chennai. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0204",
+      "text": "This is the Bengaluru Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0143",
+      "text": "Reminder: your dentist appointment in Bengaluru is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0106",
+      "text": "This is Inspector Vikram calling. Stay on video, do not disconnect, and transfer 50000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0041",
+      "text": "We are from the income tax intelligence wing regarding case NCB-2291. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Hyderabad.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0103",
+      "text": "This is Inspector Rahul calling. Stay on video, do not disconnect, and transfer 35000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0136",
+      "text": "Hi Meena, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0108",
+      "text": "This is Inspector Vikram calling. Stay on video, do not disconnect, and transfer 15000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0020",
+      "text": "This is Officer Verma, CBI. A parcel booked under your Aadhaar contains banned substances. To avoid being taken into custody today you need to move 35000 rupees to the account we verify you with.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0221",
+      "text": "This is the passport office, your application under reference CBI/CC/1207 is ready, please collect it within 15 days.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0001",
+      "text": "Hello Meena, I am calling from the Indore Cyber Crime branch. Your name has come up in a case ref CY/2026/8834. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0220",
+      "text": "This is the passport office, your application under reference NCB-2291 is ready, please collect it within 15 days.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0066",
+      "text": "Ramesh, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case NCB-2291 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0178",
+      "text": "This is your cab driver, I've arrived outside your building in Ahmedabad.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0158",
+      "text": "Rahul, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0026",
+      "text": "This is Officer Verma, CBI. A parcel booked under your Aadhaar contains banned substances. To avoid being taken into custody today you need to move 15000 rupees to the account we verify you with.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0151",
+      "text": "Hello, this is the school office, tomorrow's sports day has been postponed due to rain.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0013",
+      "text": "Hello Neha, I am calling from the Ahmedabad Cyber Crime branch. Your name has come up in a case ref CBI/CC/9012. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0233",
+      "text": "Urgent: your flight to Bengaluru tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0160",
+      "text": "Manoj, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0138",
+      "text": "Hi Anjali, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0087",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Nagpur. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0000",
+      "text": "Hello Priya, I am calling from the Indore Cyber Crime branch. Your name has come up in a case ref CBI/CC/9012. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0200",
+      "text": "This is a reminder from the Income Tax Department that returns are due by July 31st. No action needed if you've already filed.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0043",
+      "text": "We are from the income tax intelligence wing regarding case CBI/CC/9012. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Chennai.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0237",
+      "text": "This is your society's security office, please verify if your car with number plate ending 4471 is parked correctly, it is blocking the gate.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0134",
+      "text": "Hi Arjun, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0164",
+      "text": "Anjali, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0044",
+      "text": "We are from the income tax intelligence wing regarding case CBI/CC/1207. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Bengaluru.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0089",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Bengaluru. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0048",
+      "text": "We are from the income tax intelligence wing regarding case CBI/CC/9012. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Mumbai.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0097",
+      "text": "This is Inspector Rahul calling. Stay on video, do not disconnect, and transfer 120000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0102",
+      "text": "This is Inspector Suresh calling. Stay on video, do not disconnect, and transfer 95000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0076",
+      "text": "Meena, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case FIR-3390 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0038",
+      "text": "We are from the income tax intelligence wing regarding case CY/2026/8834. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Hyderabad.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0203",
+      "text": "This is the Kolkata Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0137",
+      "text": "Hi Kavita, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0064",
+      "text": "Arjun, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CY/2026/8834 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0129",
+      "text": "Hi Divya, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0157",
+      "text": "Kavita, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0195",
+      "text": "Hello Priya, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0184",
+      "text": "Hello Divya, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_hard_0206",
+      "text": "This is the Chennai Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0063",
+      "text": "This is a legal notice call. Your bank account is under scrutiny for a money laundering case. Send 50000 to the RBI holding account we provide to keep it from being frozen.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0037",
+      "text": "We are from the income tax intelligence wing regarding case FIR-3390. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Mumbai.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0219",
+      "text": "This is the passport office, your application under reference CY/2026/8834 is ready, please collect it within 15 days.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0068",
+      "text": "Anjali, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CY/2026/8834 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0059",
+      "text": "This is a legal notice call. Your bank account is under scrutiny for a money laundering case. Send 80000 to the RBI holding account we provide to keep it from being frozen.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0141",
+      "text": "Reminder: your dentist appointment in Hyderabad is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0006",
+      "text": "Hello Rahul, I am calling from the Bengaluru Cyber Crime branch. Your name has come up in a case ref CY/2026/4471. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0231",
+      "text": "Urgent: your flight to Delhi tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0118",
+      "text": "Your number is linked to an illegal SIM card racket under case CBI/CC/1207. Police will arrive within the hour unless you cooperate immediately and share the OTP sent to your phone.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0042",
+      "text": "We are from the income tax intelligence wing regarding case ED/MUM/775. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Indore.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0125",
+      "text": "Hi Priya, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0100",
+      "text": "This is Inspector Divya calling. Stay on video, do not disconnect, and transfer 15000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0082",
+      "text": "Meena, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case ED/MUM/775 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0161",
+      "text": "Deepak, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_hard_0229",
+      "text": "Urgent: your flight to Chennai tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0146",
+      "text": "Reminder: your dentist appointment in Pune is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0179",
+      "text": "This is your cab driver, I've arrived outside your building in Jaipur.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0147",
+      "text": "Reminder: your dentist appointment in Nagpur is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0128",
+      "text": "Hi Ramesh, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0140",
+      "text": "Reminder: your dentist appointment in Chennai is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0149",
+      "text": "Reminder: your dentist appointment in Kolkata is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0139",
+      "text": "Reminder: your dentist appointment in Ahmedabad is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0113",
+      "text": "This is Inspector Deepak calling. Stay on video, do not disconnect, and transfer 95000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0112",
+      "text": "This is Inspector Manoj calling. Stay on video, do not disconnect, and transfer 50000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0154",
+      "text": "Priya, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0187",
+      "text": "Hello Sanjay, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0196",
+      "text": "Hello Rahul, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0004",
+      "text": "Hello Suresh, I am calling from the Bengaluru Cyber Crime branch. Your name has come up in a case ref NCB-2291. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0133",
+      "text": "Hi Sunita, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0183",
+      "text": "Hello Kavita, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0110",
+      "text": "This is Inspector Sunita calling. Stay on video, do not disconnect, and transfer 50000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0021",
+      "text": "This is Officer Verma, CBI. A parcel booked under your Aadhaar contains banned substances. To avoid being taken into custody today you need to move 95000 rupees to the account we verify you with.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0174",
+      "text": "This is your cab driver, I've arrived outside your building in Delhi.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0077",
+      "text": "Arjun, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CBI/CC/1207 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0024",
+      "text": "This is Officer Verma, CBI. A parcel booked under your Aadhaar contains banned substances. To avoid being taken into custody today you need to move 60000 rupees to the account we verify you with.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0232",
+      "text": "Urgent: your flight to Lucknow tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0192",
+      "text": "Hello Arjun, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0130",
+      "text": "Hi Neha, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_hard_0223",
+      "text": "This is the passport office, your application under reference FIR-3390 is ready, please collect it within 15 days.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0081",
+      "text": "Manoj, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CY/2026/8834 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0218",
+      "text": "This is the passport office, your application under reference CY/2026/4471 is ready, please collect it within 15 days.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0025",
+      "text": "This is Officer Verma, CBI. A parcel booked under your Aadhaar contains banned substances. To avoid being taken into custody today you need to move 50000 rupees to the account we verify you with.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0099",
+      "text": "This is Inspector Manoj calling. Stay on video, do not disconnect, and transfer 80000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0079",
+      "text": "Sanjay, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CY/2026/4471 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0162",
+      "text": "Divya, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0015",
+      "text": "Hello Meena, I am calling from the Jaipur Cyber Crime branch. Your name has come up in a case ref FIR-3390. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0018",
+      "text": "Hello Suresh, I am calling from the Bengaluru Cyber Crime branch. Your name has come up in a case ref ED/MUM/775. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0071",
+      "text": "Ramesh, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CBI/CC/9012 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0214",
+      "text": "This is the Mumbai Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0165",
+      "text": "Pooja, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0189",
+      "text": "Hello Meena, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0170",
+      "text": "Your electricity bill of this month is now available to view online.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0175",
+      "text": "This is your cab driver, I've arrived outside your building in Hyderabad.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0019",
+      "text": "Hello Sanjay, I am calling from the Lucknow Cyber Crime branch. Your name has come up in a case ref CBI/CC/9012. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0142",
+      "text": "Reminder: your dentist appointment in Indore is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0120",
+      "text": "Your number is linked to an illegal SIM card racket under case ED/MUM/775. Police will arrive within the hour unless you cooperate immediately and share the OTP sent to your phone.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0159",
+      "text": "Sunita, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0014",
+      "text": "Hello Rahul, I am calling from the Hyderabad Cyber Crime branch. Your name has come up in a case ref NCB-2291. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0054",
+      "text": "We are from the income tax intelligence wing regarding case CBI/CC/9012. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Ahmedabad.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0078",
+      "text": "Divya, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CY/2026/8834 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0109",
+      "text": "This is Inspector Pooja calling. Stay on video, do not disconnect, and transfer 25000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0036",
+      "text": "We are from the income tax intelligence wing regarding case CBI/CC/9012. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Pune.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0215",
+      "text": "Reminder from RBI's public awareness team: banks will never call asking for your OTP. This is an automated advisory, no response needed.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_hard_0213",
+      "text": "This is the Nagpur Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0168",
+      "text": "This is a reminder that your gym membership renews next week, no action needed.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0011",
+      "text": "Hello Meena, I am calling from the Delhi Cyber Crime branch. Your name has come up in a case ref CBI/CC/1207. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0198",
+      "text": "Hello Sunita, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0169",
+      "text": "Hi, calling to confirm your table for two at 8pm tonight.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0124",
+      "text": "Hi Vikram, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0176",
+      "text": "This is your cab driver, I've arrived outside your building in Indore.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0033",
+      "text": "Sir, this is a Customs Department notice. Case CBI/CC/1207 is open against you. Please do not mention this call to anyone at home, it could jeopardise the investigation.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0116",
+      "text": "Your number is linked to an illegal SIM card racket under case CY/2026/4471. Police will arrive within the hour unless you cooperate immediately and share the OTP sent to your phone.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0050",
+      "text": "We are from the income tax intelligence wing regarding case CBI/CC/1207. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Jaipur.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0094",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Jaipur. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0150",
+      "text": "Reminder: your dentist appointment in Mumbai is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0122",
+      "text": "Your number is linked to an illegal SIM card racket under case FIR-3390. Police will arrive within the hour unless you cooperate immediately and share the OTP sent to your phone.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0222",
+      "text": "This is the passport office, your application under reference ED/MUM/775 is ready, please collect it within 15 days.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0086",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Ahmedabad. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0067",
+      "text": "Deepak, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case FIR-3390 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0023",
+      "text": "This is Officer Verma, CBI. A parcel booked under your Aadhaar contains banned substances. To avoid being taken into custody today you need to move 25000 rupees to the account we verify you with.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0181",
+      "text": "This is your cab driver, I've arrived outside your building in Lucknow.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0032",
+      "text": "Sir, this is a Customs Department notice. Case NCB-2291 is open against you. Please do not mention this call to anyone at home, it could jeopardise the investigation.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0227",
+      "text": "Urgent: your flight to Jaipur tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0040",
+      "text": "We are from the income tax intelligence wing regarding case CBI/CC/1207. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Pune.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0185",
+      "text": "Hello Ramesh, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0002",
+      "text": "Hello Arjun, I am calling from the Mumbai Cyber Crime branch. Your name has come up in a case ref CY/2026/4471. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0022",
+      "text": "This is Officer Verma, CBI. A parcel booked under your Aadhaar contains banned substances. To avoid being taken into custody today you need to move 80000 rupees to the account we verify you with.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0035",
+      "text": "Ma'am this is the Enforcement Directorate. A look-out notice has been issued in your name. Keep your camera switched on and remain on this call until the matter is resolved.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0177",
+      "text": "This is your cab driver, I've arrived outside your building in Pune.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0065",
+      "text": "Arjun, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case FIR-3390 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0132",
+      "text": "Hi Rahul, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0069",
+      "text": "Rahul, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case NCB-2291 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0224",
+      "text": "This is a police station SHO office callback regarding the noise complaint you filed yesterday.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0190",
+      "text": "Hello Vikram, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0046",
+      "text": "We are from the income tax intelligence wing regarding case CY/2026/8834. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Delhi.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0039",
+      "text": "We are from the income tax intelligence wing regarding case NCB-2291. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Bengaluru.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0199",
+      "text": "This is a courtesy call from your gym about the new yoga class starting Monday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0114",
+      "text": "This is Inspector Rahul calling. Stay on video, do not disconnect, and transfer 80000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0228",
+      "text": "Urgent: your flight to Ahmedabad tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0058",
+      "text": "This is a legal notice call. Your bank account is under scrutiny for a money laundering case. Send 15000 to the RBI holding account we provide to keep it from being frozen.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0230",
+      "text": "Urgent: your flight to Nagpur tomorrow has been rescheduled by two hours, please check the airline app.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0010",
+      "text": "Hello Neha, I am calling from the Indore Cyber Crime branch. Your name has come up in a case ref CY/2026/4471. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0003",
+      "text": "Hello Suresh, I am calling from the Kolkata Cyber Crime branch. Your name has come up in a case ref NCB-2291. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0208",
+      "text": "This is the Lucknow Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0083",
+      "text": "Rahul, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CY/2026/4471 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0104",
+      "text": "This is Inspector Neha calling. Stay on video, do not disconnect, and transfer 80000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0148",
+      "text": "Reminder: your dentist appointment in Jaipur is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0092",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Indore. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0144",
+      "text": "Reminder: your dentist appointment in Lucknow is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0180",
+      "text": "This is your cab driver, I've arrived outside your building in Bengaluru.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0091",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Delhi. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0098",
+      "text": "This is Inspector Arjun calling. Stay on video, do not disconnect, and transfer 120000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0172",
+      "text": "This is your cab driver, I've arrived outside your building in Mumbai.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0145",
+      "text": "Reminder: your dentist appointment in Delhi is tomorrow at 4pm.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0101",
+      "text": "This is Inspector Neha calling. Stay on video, do not disconnect, and transfer 50000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0127",
+      "text": "Hi Manoj, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0186",
+      "text": "Hello Manoj, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0027",
+      "text": "This is Officer Verma, CBI. A parcel booked under your Aadhaar contains banned substances. To avoid being taken into custody today you need to move 120000 rupees to the account we verify you with.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0093",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Lucknow. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0131",
+      "text": "Hi Deepak, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0017",
+      "text": "Hello Sunita, I am calling from the Chennai Cyber Crime branch. Your name has come up in a case ref CY/2026/4471. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0193",
+      "text": "Hello Anjali, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_hard_0202",
+      "text": "This is Customs regarding your recently ordered item; a small duty payment is pending, payable only through the official government portal, link sent via SMS.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0052",
+      "text": "We are from the income tax intelligence wing regarding case NCB-2291. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Indore.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0126",
+      "text": "Hi Suresh, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0080",
+      "text": "Rahul, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case ED/MUM/775 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0119",
+      "text": "Your number is linked to an illegal SIM card racket under case CBI/CC/9012. Police will arrive within the hour unless you cooperate immediately and share the OTP sent to your phone.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0030",
+      "text": "Sir, this is a Customs Department notice. Case FIR-3390 is open against you. Please do not mention this call to anyone at home, it could jeopardise the investigation.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0211",
+      "text": "This is the Pune Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0051",
+      "text": "We are from the income tax intelligence wing regarding case FIR-3390. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Hyderabad.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0188",
+      "text": "Hello Pooja, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_hard_0217",
+      "text": "This is the passport office, your application under reference CBI/CC/9012 is ready, please collect it within 15 days.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0191",
+      "text": "Hello Neha, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0075",
+      "text": "Sanjay, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CBI/CC/1207 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0085",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Kolkata. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0016",
+      "text": "Hello Meena, I am calling from the Mumbai Cyber Crime branch. Your name has come up in a case ref CBI/CC/1207. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0197",
+      "text": "Hello Suresh, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_hard_0210",
+      "text": "This is the Hyderabad Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0072",
+      "text": "Arjun, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case NCB-2291 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0135",
+      "text": "Hi Sanjay, this is Zomato, your order is 5 minutes away.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0105",
+      "text": "This is Inspector Arjun calling. Stay on video, do not disconnect, and transfer 60000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0171",
+      "text": "This is your cab driver, I've arrived outside your building in Kolkata.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_easy_0194",
+      "text": "Hello Deepak, just checking if you're still coming for dinner on Sunday.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "benign_hard_0201",
+      "text": "Hello, this is your bank's fraud team. We noticed an unusual transaction and want to confirm if it was you \u2014 no OTP or payment is ever needed for this call.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "benign_easy_0166",
+      "text": "Sanjay, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0090",
+      "text": "Attention, this is your final warning before an arrest team reaches your address in Hyderabad. Complete the identity verification and OTP confirmation right now to avoid this.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0096",
+      "text": "This is Inspector Arjun calling. Stay on video, do not disconnect, and transfer 35000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0209",
+      "text": "This is the Indore Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0073",
+      "text": "Rahul, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CY/2026/8834 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0182",
+      "text": "This is your cab driver, I've arrived outside your building in Chennai.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0047",
+      "text": "We are from the income tax intelligence wing regarding case NCB-2291. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Nagpur.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0056",
+      "text": "This is a legal notice call. Your bank account is under scrutiny for a money laundering case. Send 35000 to the RBI holding account we provide to keep it from being frozen.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0055",
+      "text": "We are from the income tax intelligence wing regarding case NCB-2291. If you disconnect now it will be recorded as non-cooperation and a team will be sent to your residence in Lucknow.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0163",
+      "text": "Neha, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    },
+    {
+      "id": "scam_0107",
+      "text": "This is Inspector Pooja calling. Stay on video, do not disconnect, and transfer 95000 as a refundable security deposit to clear the case against you.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_hard_0205",
+      "text": "This is the Jaipur Municipal Corporation with an urgent notice about water supply maintenance in your area tomorrow.",
+      "label": 0,
+      "subtype": "benign_hard"
+    },
+    {
+      "id": "scam_0070",
+      "text": "Anjali, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CBI/CC/1207 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0074",
+      "text": "Priya, this is the narcotics control bureau. Do not tell your family about this matter, it is strictly confidential until the case CY/2026/8834 is closed.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0061",
+      "text": "This is a legal notice call. Your bank account is under scrutiny for a money laundering case. Send 60000 to the RBI holding account we provide to keep it from being frozen.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "scam_0007",
+      "text": "Hello Arjun, I am calling from the Delhi Cyber Crime branch. Your name has come up in a case ref CBI/CC/1207. You must stay connected on this video call and not hang up while we sort this out.",
+      "label": 1,
+      "subtype": "scam"
+    },
+    {
+      "id": "benign_easy_0167",
+      "text": "Suresh, your Amazon package will be delivered between 2pm and 6pm today.",
+      "label": 0,
+      "subtype": "benign_easy"
+    }
+  ]
+}
