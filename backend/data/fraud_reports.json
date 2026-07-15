@@ -1,0 +1,19 @@
+{
+  "note": "Synthetic, developer-authored citizen reports for demo purposes only. Entities (phone numbers, account numbers, UPI IDs, case refs) are fabricated and do not correspond to real numbers or accounts. Designed so that reports sharing infrastructure (ring A / ring B) can be detected via graph clustering, alongside unrelated singleton reports.",
+  "reports": [
+    {"id": "R001", "city": "Mumbai", "text": "Caller claimed to be CBI officer, case CY/2026/4471, asked me to transfer money to account 1122334455667 to avoid arrest."},
+    {"id": "R002", "city": "Pune", "text": "Same script, said case CY/2026/4471 is active against me, call back number was 9876543210 for verification."},
+    {"id": "R003", "city": "Nagpur", "text": "Told to keep video on, asked to send OTP, gave account number 1122334455667 for a refundable deposit."},
+    {"id": "R004", "city": "Indore", "text": "Officer said to call 9876543210 if I disconnect, mentioned case CY/2026/4471 again."},
+    {"id": "R005", "city": "Delhi", "text": "Fraudster impersonating customs, asked to pay via UPI ID fraud.verify@oksbi for a parcel case."},
+    {"id": "R006", "city": "Jaipur", "text": "Customs case again, same UPI ID fraud.verify@oksbi requested, said parcel had illegal items."},
+    {"id": "R007", "city": "Lucknow", "text": "Told to send money to fraud.verify@oksbi urgently or a team would be sent to my house."},
+    {"id": "R008", "city": "Bengaluru", "text": "Unrelated call, someone claiming to be from a bank asked for OTP, account number given was 9988776655443, unique case."},
+    {"id": "R009", "city": "Chennai", "text": "Random scam call, asked to transfer to account 5566778899001, no matching entities to other reports."},
+    {"id": "R010", "city": "Hyderabad", "text": "Isolated report, phone number given for callback was 7000112233, no other overlap."},
+    {"id": "R011", "city": "Ahmedabad", "text": "Another isolated one, case ref FIR-3390 only appears here, asked for a small verification fee."},
+    {"id": "R012", "city": "Kolkata", "text": "Standalone report, UPI ID onlyhere@icici mentioned once, no shared entities."},
+    {"id": "R013", "city": "Mumbai", "text": "Third contact from the same CBI ring, case CY/2026/4471, again pushing account 1122334455667."},
+    {"id": "R014", "city": "Surat", "text": "Follow-up from customs ring, fraud.verify@oksbi used again for a different citizen."}
+  ]
+}
