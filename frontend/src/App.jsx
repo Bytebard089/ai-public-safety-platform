@@ -9,6 +9,12 @@ const CATEGORY_LABELS = {
   payment_or_otp_demand: 'Payment or OTP demand',
 }
 
+const VERDICT_WORD = {
+  low: 'Cleared',
+  medium: 'Caution',
+  high: 'Flagged',
+}
+
 const SAMPLES = [
   'This is Inspector Sharma from CBI cybercrime division. Your Aadhaar number has been linked to a money laundering case. Do not disconnect this call or you will be arrested immediately. Stay on video call while we verify your identity.',
   'Hi, this is Rohit from the electricity board. Your bill for this month is ready, you can pay it online or at the nearest office anytime this week.',
@@ -36,21 +42,21 @@ function HighlightedText({ text, flags }) {
   return <p className="transcript-plain">{nodes}</p>
 }
 
-function RiskGauge({ score, verdict }) {
-  const segments = ['low', 'medium', 'high']
+function VerdictStamp({ score, verdict }) {
   return (
-    <div className="gauge">
-      <div className="gauge-track">
-        <div className={`gauge-fill gauge-fill-${verdict}`} style={{ width: `${score}%` }} />
+    <div className="stamp-row">
+      <div className="stamp" data-verdict={verdict}>
+        <div className="stamp-text">
+          <span className="stamp-verdict">{verdict}</span>
+          <span className="stamp-word">{VERDICT_WORD[verdict] || 'Assessed'}</span>
+        </div>
       </div>
-      <div className="gauge-labels">
-        {segments.map((s) => (
-          <span key={s} className={verdict === s ? 'gauge-label active' : 'gauge-label'}>
-            {s}
-          </span>
-        ))}
+      <div className="stamp-score">
+        <div className="score-value">{score}<span>/100 risk score</span></div>
+        <div className="score-bar">
+          <div className="score-fill" data-verdict={verdict} style={{ width: `${score}%` }} />
+        </div>
       </div>
-      <div className="gauge-score">{score}<span className="gauge-score-max">/100</span></div>
     </div>
   )
 }
@@ -72,6 +78,11 @@ export default function App() {
     if (!result) return []
     return [...new Set(result.flags.map((f) => f.category))]
   }, [result])
+
+  const caseId = useMemo(
+    () => `SS-${Math.random().toString(36).slice(2, 6).toUpperCase()}`,
+    []
+  )
 
   async function handleAnalyze() {
     if (!text.trim()) return
@@ -136,9 +147,13 @@ export default function App() {
     <div className="page">
       <header className="header">
         <div className="header-mark">SS</div>
-        <div>
+        <div className="header-titles">
           <h1>Scam Shield</h1>
           <p className="header-sub">Paste a suspicious call or message. Get a risk read before you act.</p>
+        </div>
+        <div className="header-meta">
+          Case {caseId}<br />
+          Digital Public Safety
         </div>
       </header>
 
@@ -157,7 +172,7 @@ export default function App() {
       {tab === 'detect' && (
       <main className="layout">
         <section className="panel input-panel">
-          <label htmlFor="transcript">Call or message text</label>
+          <label htmlFor="transcript">Statement — call or message text</label>
           <textarea
             id="transcript"
             value={text}
@@ -178,7 +193,8 @@ export default function App() {
 
         {result && (
           <section className="panel result-panel">
-            <RiskGauge score={result.score} verdict={result.verdict} />
+            <label>Assessment</label>
+            <VerdictStamp score={result.score} verdict={result.verdict} />
             <p className="reason">{result.reason}</p>
 
             {categoriesHit.length > 0 && (
@@ -220,16 +236,19 @@ export default function App() {
           {graphData && (
             <>
               <div className="graph-stats">
-                <span><strong>{graphData.n_reports}</strong> reports analyzed</span>
-                <span><strong>{graphData.n_entities}</strong> distinct entities</span>
-                <span><strong>{graphData.clusters.length}</strong> fraud rings detected</span>
+                <span><strong>{graphData.n_reports}</strong>reports analyzed</span>
+                <span><strong>{graphData.n_entities}</strong>distinct entities</span>
+                <span><strong>{graphData.clusters.length}</strong>fraud rings detected</span>
               </div>
 
-              <img
-                className="graph-image"
-                src={`data:image/png;base64,${graphData.image_base64}`}
-                alt="Fraud network graph"
-              />
+              <div className="exhibit-frame">
+                <div className="exhibit-label">Exhibit A — network graph</div>
+                <img
+                  className="graph-image"
+                  src={`data:image/png;base64,${graphData.image_base64}`}
+                  alt="Fraud network graph"
+                />
+              </div>
 
               {graphData.clusters.map((c, i) => (
                 <div key={i} className="cluster-card">
