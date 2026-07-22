@@ -3,6 +3,20 @@ import './App.css'
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
 
+async function apiFetch(path, options = {}) {
+  const hosts = Array.from(new Set([API_BASE, 'http://127.0.0.1:8000', 'http://localhost:8000']))
+  let lastErr = null
+  for (const host of hosts) {
+    try {
+      const res = await fetch(`${host}${path}`, options)
+      if (res.ok) return res
+    } catch (e) {
+      lastErr = e
+    }
+  }
+  throw lastErr || new Error('Could not connect to backend service')
+}
+
 /* ── Constants ─────────────────────────────────────────────────────────────── */
 
 const CATEGORY_LABELS = {
@@ -151,7 +165,7 @@ function DetectTab() {
     setLoading(true); setError(null); setResult(null)
     setReport(null); setAlertStatus(null); setCopied(false)
     try {
-      const res = await fetch(`${API_BASE}/analyze`, {
+      const res = await apiFetch('/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text }),
@@ -168,7 +182,7 @@ function DetectTab() {
 
   async function handleReport() {
     if (!result) return
-    const res = await fetch(`${API_BASE}/report`, {
+    const res = await apiFetch('/report', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, verdict: result.verdict, reason: result.reason }),
@@ -188,7 +202,7 @@ function DetectTab() {
 
   async function handleAlert() {
     if (!result) return
-    const res = await fetch(`${API_BASE}/alert`, {
+    const res = await apiFetch('/alert', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ contact_name: 'Emergency contact', verdict: result.verdict, reason: result.reason }),
@@ -270,7 +284,7 @@ function GraphTab() {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`${API_BASE}/graph/demo`)
+    apiFetch('/graph/demo')
       .then(r => r.json())
       .then(d => setData(d))
       .catch(() => setError('Could not reach the graph service.'))
@@ -344,7 +358,7 @@ function GeoTab() {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`${API_BASE}/geo/heatmap`)
+    apiFetch('/geo/heatmap')
       .then(r => r.json())
       .then(d => setData(d))
       .catch(() => setError('Could not reach the geo service.'))
@@ -452,7 +466,7 @@ function IntelTab() {
     setLoading(true); setError(null); setPkg(null)
     try {
       // First analyze the transcript
-      const aRes = await fetch(`${API_BASE}/analyze`, {
+      const aRes = await apiFetch('/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text }),
@@ -460,11 +474,11 @@ function IntelTab() {
       const analysis = await aRes.json()
 
       // Fetch graph clusters for context
-      const gRes = await fetch(`${API_BASE}/graph/demo`)
+      const gRes = await apiFetch('/graph/demo')
       const graphData = await gRes.json()
 
       // Build intel package
-      const pRes = await fetch(`${API_BASE}/intel-package`, {
+      const pRes = await apiFetch('/intel-package', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -588,7 +602,7 @@ function CurrencyTab() {
     const form = new FormData()
     form.append('file', file)
     try {
-      const res = await fetch(`${API_BASE}/currency/analyze`, { method: 'POST', body: form })
+      const res = await apiFetch('/currency/analyze', { method: 'POST', body: form })
       const data = await res.json()
       setResult(data)
     } catch {
