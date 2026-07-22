@@ -116,7 +116,7 @@ def generate(n_per_template=20):
 
 if __name__ == "__main__":
     dataset = generate(n_per_template=20)
-    with open("/home/claude/scam-shield/backend/eval/eval_dataset.json", "w") as f:
+    with open("eval_dataset.json", "w") as f:
         json.dump({
             "note": "Synthetic evaluation set, developer-authored, not real victim or case data. "
                     "benign_hard entries are legitimate-but-scam-adjacent, used to stress-test false positive rate.",

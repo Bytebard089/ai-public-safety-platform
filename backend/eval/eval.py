@@ -23,7 +23,6 @@ from detector import analyze  # noqa: E402
 
 from sklearn.metrics import confusion_matrix, precision_recall_fscore_support
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 
 
 def load_dataset():
@@ -33,14 +32,15 @@ def load_dataset():
 
 def run(live: bool):
     dataset = load_dataset()
-    y_true, y_pred, subtypes = [], [], []
+    y_true, y_pred, subtypes, llm_used = [], [], [], []
 
     for ex in dataset:
-        result = analyze(ex["text"])
+        result = analyze(ex["text"], use_llm=live)
         flagged = 1 if result.verdict in ("medium", "high") else 0
         y_true.append(ex["label"])
         y_pred.append(flagged)
         subtypes.append(ex["subtype"])
+        llm_used.append(result.llm_available)
 
     precision, recall, f1, _ = precision_recall_fscore_support(y_true, y_pred, average="binary", zero_division=0)
     cm = confusion_matrix(y_true, y_pred, labels=[0, 1])
@@ -57,8 +57,18 @@ def run(live: bool):
     hard_fpr = hard_fp / len(hard_neg_idx) if hard_neg_idx else 0.0
     easy_fpr = easy_fp / len(easy_neg_idx) if easy_neg_idx else 0.0
 
+    n_llm_scored = sum(llm_used)
+    if not live:
+        mode = "rule_layer_only (offline eval environment)"
+    elif n_llm_scored == len(dataset):
+        mode = "rule+LLM hybrid"
+    elif n_llm_scored == 0:
+        mode = "rule_layer_only (--live requested but Ollama unreachable — fell back automatically)"
+    else:
+        mode = f"mixed ({n_llm_scored}/{len(dataset)} examples scored with LLM, rest fell back to rules)"
+
     report = {
-        "mode": "rule_layer_only (offline eval environment)" if not live else "rule+LLM hybrid",
+        "mode": mode,
         "n_examples": len(dataset),
         "n_scam": sum(y_true),
         "n_benign": len(y_true) - sum(y_true),

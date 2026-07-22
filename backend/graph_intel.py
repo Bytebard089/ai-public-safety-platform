@@ -84,22 +84,25 @@ def render_graph(g: nx.Graph) -> str:
     fig, ax = plt.subplots(figsize=(7, 5.5))
     pos = nx.spring_layout(g, seed=7, k=0.6)
 
-    color_map = {"report": "#1B2A4A", "phone": "#D97706", "account": "#DC2626",
-                 "upi": "#7C3AED", "case_ref": "#16A34A"}
+    # Palette matches the frontend's case-dossier theme (App.css --navy /
+    # --brass / --high / --low / --medium) so the "Exhibit A" graph image
+    # feels like part of the same document rather than a generic plot.
+    color_map = {"report": "#17213B", "phone": "#B5750E", "account": "#A61B1B",
+                 "upi": "#8A6D3B", "case_ref": "#1F7A4D"}
     node_colors = [color_map.get(g.nodes[n].get("kind"), "#999999") for n in g.nodes]
     node_sizes = [420 if g.nodes[n].get("kind") == "report" else 260 for n in g.nodes]
 
-    nx.draw_networkx_edges(g, pos, ax=ax, edge_color="#C7C6C0", width=1.2)
+    nx.draw_networkx_edges(g, pos, ax=ax, edge_color="#CDC6A9", width=1.2)
     nx.draw_networkx_nodes(g, pos, ax=ax, node_color=node_colors, node_size=node_sizes, linewidths=0)
     labels = {n: n.split("::", 1)[1] if "::" in n else n for n in g.nodes}
-    nx.draw_networkx_labels(g, pos, labels=labels, ax=ax, font_size=6.5, font_color="white" if False else "#1C1C1C")
+    nx.draw_networkx_labels(g, pos, labels=labels, ax=ax, font_size=6.5, font_color="#1B1B18")
 
     ax.set_title("Fraud network — shared infrastructure across reports", fontsize=11)
     ax.axis("off")
     plt.tight_layout()
 
     buf = io.BytesIO()
-    plt.savefig(buf, format="png", dpi=180, facecolor="white")
+    plt.savefig(buf, format="png", dpi=180, facecolor="#F6F4EA")
     plt.close(fig)
     buf.seek(0)
     return base64.b64encode(buf.read()).decode("ascii")

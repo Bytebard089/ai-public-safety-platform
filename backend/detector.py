@@ -136,14 +136,14 @@ Transcript:
         resp = requests.post(
             f"{host}/api/generate",
             json={"model": MODEL, "prompt": prompt, "stream": False, "format": "json"},
-            timeout=30,
+            timeout=8,
         )
         resp.raise_for_status()
         raw = resp.json().get("response", "").strip()
         raw = raw.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
         parsed = json.loads(raw)
         return int(parsed["score"]), parsed["reason"]
-    except requests.exceptions.ConnectionError:
+    except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout):
         return None, "Ollama not running locally — showing rule-based result only. Run `ollama serve`."
     except (json.JSONDecodeError, KeyError, ValueError):
         return None, "LLM response could not be parsed — showing rule-based result only."
@@ -157,9 +157,13 @@ def _verdict(score: int) -> str:
     return "low"
 
 
-def analyze(text: str) -> Analysis:
+def analyze(text: str, use_llm: bool = True) -> Analysis:
     rule_score, flags = _rule_scan(text)
-    llm_score, llm_reason = _llm_scan(text)
+
+    if use_llm:
+        llm_score, llm_reason = _llm_scan(text)
+    else:
+        llm_score, llm_reason = None, "LLM layer skipped (rule-only mode requested by caller)."
 
     if llm_score is None:
         final_score = rule_score
