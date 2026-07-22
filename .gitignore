@@ -1,7 +1,27 @@
-node_modules/
-venv/
-__pycache__/
-*.pyc
-.env
-dist/
+# Python
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/.env
+*.egg-info/
 .DS_Store
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test artifacts
+backend/data/*.tmp
