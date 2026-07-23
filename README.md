@@ -1,33 +1,24 @@
-# Scam Shield — AI-Powered Digital Public Safety Intelligence Platform
+# Scam Shield — Digital Public Safety Intelligence Platform
 
-> An enterprise-grade, local-first intelligence platform engineered for real-time digital arrest scam classification, graph-based fraud ring detection, geospatial crime mapping, and counterfeit currency verification.
-
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ai-public-safety-platform-nine.vercel.app/)
-[![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+A local-first public safety platform designed for real-time digital arrest scam classification, graph-based fraud ring detection, geospatial crime mapping, and counterfeit currency verification.
 
 ---
 
-## 🌐 Live Web Application
+## Live Demo
 
-- **Production Deployment:** [https://ai-public-safety-platform-nine.vercel.app/](https://ai-public-safety-platform-nine.vercel.app/)
-- **Interactive OpenAPI (Swagger) Docs:** `http://localhost:8000/docs`
+Access the live web application: [https://ai-public-safety-platform-nine.vercel.app/](https://ai-public-safety-platform-nine.vercel.app/)
 
 ---
 
-## 🎯 Problem Statement & Impact
+## Problem Statement & Impact
 
 India registered **1.14 million cybercrime complaints in 2023** (a 60% YoY increase). According to the Ministry of Home Affairs (MHA), "digital arrest" scams—where transnational fraud syndicates impersonate central agencies (CBI, ED, Customs) over video calls—defrauded citizens of over **₹1,776 crore** in the first nine months of 2024 alone. Concurrently, the RBI flagged record Fake Indian Currency Note (FICN) seizures where counterfeit ₹500 notes defeat routine manual bank verification.
 
-**Scam Shield** solves these challenges by providing law enforcement agencies and citizens with an integrated, zero-trust digital intelligence command centre.
+**Scam Shield** addresses these challenges by providing law enforcement and citizens with an integrated digital intelligence platform.
 
 ---
 
-## 🚀 Key Modules & Architecture
-
-### Core Feature Matrix
+## Features & Architecture
 
 | Module | Technical Implementation | Practical Utility |
 | :--- | :--- | :--- |
@@ -39,7 +30,7 @@ India registered **1.14 million cybercrime complaints in 2023** (a 60% YoY incre
 
 ---
 
-## 📐 System Architecture
+## System Architecture
 
 ```text
                                ┌──────────────────────────────────────────┐
@@ -69,7 +60,7 @@ India registered **1.14 million cybercrime complaints in 2023** (a 60% YoY incre
 
 ---
 
-## 📊 Benchmark & Evaluation Results
+## Benchmark & Evaluation Results
 
 Evaluated against a curated, balanced dataset of **238 annotated transcripts** (scam vs. benign controls):
 
@@ -80,25 +71,25 @@ Evaluated against a curated, balanced dataset of **238 annotated transcripts** (
 | **F1 Score** | **0.87** | ≥ 0.85 |
 | **False Positive Rate (FPR)** | **0.00** | 0.00 (Critical for Public Safety Systems) |
 
-> **Design Principle:** In public safety tools, false alarms destroy user trust. The classification matrix is strictly tuned to guarantee **0.00 False Positive Rate**.
+> **Design Principle:** In public safety tools, false alarms destroy user trust. The classification matrix is strictly tuned to guarantee a **0.00 False Positive Rate**.
 
 ---
 
-## 🛠️ Tech Stack & Engineering Practices
+## Tech Stack
 
 - **Backend:** Python 3.11, FastAPI, Uvicorn, Pydantic v2, NetworkX, Matplotlib, NumPy, Pillow, Scikit-Learn
-- **Frontend:** React 18, Vite, Vanilla CSS Design Tokens, Custom SVG Projections
-- **LLM / AI:** Local Ollama runner with Mistral 7B (air-gapped privacy preservation)
-- **Deployment:** Render (Docker / Web Services), Vercel (Edge Static Frontend)
+- **Frontend:** React 18, Vite, Vanilla CSS, Custom SVG Projections
+- **AI / Model:** Local Ollama runner with Mistral 7B (privacy-preserving air-gapped deployment)
+- **Deployment:** Render (Backend Docker Container), Vercel (Frontend Static Host)
 
 ---
 
-## 🏁 Local Development Setup
+## Local Setup
 
 ### 1. Prerequisites
 - **Python 3.11+**
 - **Node.js 18+**
-- **Ollama** *(Optional: Required for LLM contextual reasoning layer)*
+- **Ollama** *(Optional: Required for local LLM layer)*
 
 ### 2. Backend Installation
 ```bash
@@ -112,7 +103,7 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Launch FastAPI development server
+# Launch FastAPI server
 uvicorn main:app --host 127.0.0.1 --port 8000
 ```
 
@@ -128,11 +119,11 @@ npm install
 npm run dev
 ```
 
-Visit **`http://localhost:5173`** in your browser.
+Open `http://localhost:5173` in your browser.
 
 ---
 
-## 📡 REST API Endpoint Summary
+## API Reference
 
 | Endpoint | Method | Purpose |
 | :--- | :--- | :--- |
@@ -147,7 +138,7 @@ Visit **`http://localhost:5173`** in your browser.
 
 ---
 
-## 📄 License & Compliance
+## License & Helplines
 
 Distributed under the **MIT License**. All evaluation datasets and report examples are synthetic and contain no real citizen PII.
 
